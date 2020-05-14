@@ -4,6 +4,9 @@ let app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+const cors = require('cors')
+app.use(cors())
+
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost:27017/prueba', {
     useNewUrlParser: true,

@@ -16,9 +16,13 @@ function crearUsuario(req, res) {
         genero: req.body.genero
     })
 
-    usuario_modelo.save()
+    usuario_modelo.save((err, usuario_modelo) => {
 
-    res.send(usuario_modelo)
+        if(err)
+            return res.status(400).send('Error al agregar usuario')
+        
+        res.send(usuario_modelo)
+    })
 }
 
 function obtenerUsuarios(req, res) {
